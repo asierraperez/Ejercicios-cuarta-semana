@@ -1,8 +1,8 @@
 function Ejercicio_1(num1, num2) {
     var multiplo = 0;
     var bool = false;
-    num1=parseInt(num1);
-    num2=parseInt(num2);
+    num1 = parseInt(num1);
+    num2 = parseInt(num2);
     if (num1 < num2) {
         multiplo = num2 % num1;
         console.log(num1 + "<=" + num2);
@@ -61,22 +61,24 @@ function Ejercicio_4(alimento, cantidad) {
 
 function Ejercicio_5(lado, altura) {
     //var superficie;
-    lado=parseInt(lado);
-    altura=parseInt(altura);
-    var cuadrilatero = {
-        ancho: lado,
-        alto: altura,
-        area: 0,
-        CalculoArea: function () {
-            area = this.lado * this.alto;
-            console.log(this.area);
-        }
+    lado = parseInt(lado);
+    altura = parseInt(altura);
+    var cuadrilatero = function (lado, altura) {
+        var ancho = lado;
+        var alto = altura;
+        var area = 0;
+            this.CalculoArea = function () {
+                area = ancho * alto;
+                console.log(area);
+                alert("Ejercicio 5\n\nArea = " + area);
+            }
     }
     //superficie=cuadrilatero.CalculoArea();
-
-    cuadrilatero.CalculoArea()
-
-    return cuadrilatero.area
+    var rectangulo = new cuadrilatero(lado,altura);
+    //console.log(rectangulo.alto + " " + rectangulo.ancho)
+    rectangulo.CalculoArea()
+    //console.log(rectangulo.area);
+    return rectangulo.area;
 }
 
 function Ejercicio_6() {
@@ -181,7 +183,7 @@ var confirmar;
 do {
     do {
         menu = prompt("EJERCICIOS 4\n\nEscribe es numero del ejercicio a consultar\n1.-Comprobacion de multiplos\n2.-comprobacion de nº primos\n3.-Desglosar caracteres\n4.-Alimentos y cantidades\n5.-Calculo de area\n6.-Calculo de media\n7.-Aventureros\n8.-Calculadora\n9.-Salir");
-        menu=parseInt(menu);
+        menu = parseInt(menu);
         if ((menu != 1) & (menu != 2) & (menu != 3) & (menu != 4) & (menu != 5) & (menu != 6) & (menu != 7) & (menu != 8) & (menu != 9)) {
             alert("EJERCICIOS 4\n\nOpción incorrecta, intentalo de nuevo")
         }
@@ -220,8 +222,7 @@ do {
         case 5:
             var lado = prompt("Ejercicio 5\n\nIntroduce longitud del lado");
             var altura = prompt("Ejercicio 5\n\nIntroduce altura");
-            var area = Ejercicio_5(lado, altura);
-            alert("Ejercicio 5\n\nArea = " + area);
+            Ejercicio_5(lado, altura);           
             break;
         case 6:
             Ejercicio_6()
